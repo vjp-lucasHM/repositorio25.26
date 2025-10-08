@@ -11,7 +11,24 @@ package holamundo;
  */
 public class HolaMundo {
     public static void main(String[] args) {
-        System.out.println("Hola mundo");
+        int num = 5;
+        
+        switch(num) {
+            case 1: {
+                System.out.println("es 1");
+                break;
+            }
+            
+            case 2: {
+                System.out.println("es 2");
+                break;
+            }
+            
+            case 3: {
+                System.out.println("es 3");
+                break;
+            }
+        }
     }
     
 }
