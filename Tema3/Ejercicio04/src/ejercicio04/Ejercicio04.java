@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ejercicio03;
+package ejercicio04;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author alumno
  */
-public class Ejercicio03 {
+public class Ejercicio04 {
 
     /**
      * @param args the command line arguments
@@ -29,11 +29,11 @@ public class Ejercicio03 {
         
         int numM;
         
-        if(num1 > num2 && num1 > num3) numM = num1;
-        else if(num2 > num1 && num2 > num3) numM = num2;
+        if(num1 < num2 && num1 < num3) numM = num1;
+        else if(num2 < num1 && num2 < num3) numM = num2;
         else numM = num3;
         
-        System.out.println("El numero mayor es " + numM);
+        System.out.println("El numero menor es " + numM);
     }
     
 }
