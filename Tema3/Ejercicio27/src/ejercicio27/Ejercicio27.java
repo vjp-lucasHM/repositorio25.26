@@ -112,7 +112,16 @@ public class Ejercicio27 {
                     return;
                 }// pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
                 
-                System.out.println("La division entre los numeros " + num1 + " y " + num2 + " es " + (num1/num2)); // realizo la operacion y la imprimo por pantalla
+                int resultado = 0;
+                
+                try {
+                    resultado = num1/num2;
+                } catch(ArithmeticException e) {
+                    resultado = 0;
+                    System.out.println("No se puede realizar una division entre 0! El resultado será 0 por defecto.");
+                }
+                
+                System.out.println("La division entre los numeros " + num1 + " y " + num2 + " es " + resultado); // realizo la operacion y la imprimo por pantalla
                 break;
             }
             
