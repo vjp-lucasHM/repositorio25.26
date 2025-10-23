@@ -4,7 +4,9 @@
  */
 package ejercicio27;
 
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -22,21 +24,22 @@ public class Ejercicio27 {
         int num;
         
         do {
+            // Le doy las opciones al usuario
             System.out.println("Por favor, elige una de las siguientes opciones:\n1. Sumar los numeros\n2. Restar los numeros\n3. Multiplicar los numeros\n4. Dividir los numeros\n5. Salir del programa");
             num = scanner.nextInt();
-        } while(num>5);
+        } while(num>5 || num<=0); // Si introduce una opcion invalida le dejo que vuelva a poner una opcion
         
         int num1, num2;
         
         switch(num) {
-            case 1: {
+            case 1: { // opcion 1: sumar
                 try {
                     System.out.println("Por favor, introduce un numero.");
-                    num1 = scanner.nextInt();
+                    num1 = scanner.nextInt(); 
                 } catch (InputMismatchException e) {
                     System.out.println("Por favor, introduce un numero valido.");
                     return;
-                }
+                } // pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
         
                 try {
                     System.out.println("Por favor, introduce un numero.");
@@ -44,20 +47,41 @@ public class Ejercicio27 {
                 } catch (InputMismatchException e) {
                     System.out.println("Por favor, introduce un numero valido.");
                     return;
-                }
+                } // pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
                 
-                System.out.println("La suma entre los numeros " + num1 + " y " + num2 + " es " + (num1+num2));
+                System.out.println("La suma entre los numeros " + num1 + " y " + num2 + " es " + (num1+num2)); // realizo la operacion y la imprimo por pantalla
                 break;
             }
             
-            case 2: {
+            case 2: { // opcion numero 2: restar
                 try {
                     System.out.println("Por favor, introduce un numero.");
                     num1 = scanner.nextInt();
                 } catch (InputMismatchException e) {
                     System.out.println("Por favor, introduce un numero valido.");
                     return;
-                }
+                }// pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
+         
+                try {
+                    System.out.println("Por favor, introduce un numero.");
+                    num2 = scanner.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Por favor, introduce un numero valido.");
+                    return;
+                }// pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
+                
+                System.out.println("La resta entre los numeros " + num1 + " y " + num2 + " es " + (num1-num2)); // realizo la operacion y la imprimo por pantalla
+                break;
+            }
+            
+            case 3: { // opcion numero 3: multiplicar
+                try {
+                    System.out.println("Por favor, introduce un numero.");
+                    num1 = scanner.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("Por favor, introduce un numero valido.");
+                    return;
+                }// pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
         
                 try {
                     System.out.println("Por favor, introduce un numero.");
@@ -65,20 +89,20 @@ public class Ejercicio27 {
                 } catch (InputMismatchException e) {
                     System.out.println("Por favor, introduce un numero valido.");
                     return;
-                }
+                }// pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
                 
-                System.out.println("La resta entre los numeros " + num1 + " y " + num2 + " es " + (num1-num2));
+                System.out.println("El producto entre los numeros " + num1 + " y " + num2 + " es " + (num1*num2)); // realizo la operacion y la imprimo por pantalla
                 break;
             }
             
-            case 3: {
+            case 4: { // opcion numero 4: dividir
                 try {
                     System.out.println("Por favor, introduce un numero.");
                     num1 = scanner.nextInt();
                 } catch (InputMismatchException e) {
                     System.out.println("Por favor, introduce un numero valido.");
                     return;
-                }
+                }// pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
         
                 try {
                     System.out.println("Por favor, introduce un numero.");
@@ -86,38 +110,16 @@ public class Ejercicio27 {
                 } catch (InputMismatchException e) {
                     System.out.println("Por favor, introduce un numero valido.");
                     return;
-                }
+                }// pido el numero, y controlo la excepcion en caso de que introduzca un dato invalido
                 
-                System.out.println("El producto entre los numeros " + num1 + " y " + num2 + " es " + (num1*num2));
+                System.out.println("La division entre los numeros " + num1 + " y " + num2 + " es " + (num1/num2)); // realizo la operacion y la imprimo por pantalla
                 break;
             }
             
-            case 4: {
-                try {
-                    System.out.println("Por favor, introduce un numero.");
-                    num1 = scanner.nextInt();
-                } catch (InputMismatchException e) {
-                    System.out.println("Por favor, introduce un numero valido.");
-                    return;
-                }
-        
-                try {
-                    System.out.println("Por favor, introduce un numero.");
-                    num2 = scanner.nextInt();
-                } catch (InputMismatchException e) {
-                    System.out.println("Por favor, introduce un numero valido.");
-                    return;
-                }
-                
-                System.out.println("La division entre los numeros " + num1 + " y " + num2 + " es " + (num1/num2));
-                break;
-            }
-            
-            case 5: {
+            case 5: { // opcion de salir del programa
                 System.out.println("Gracias por usar el programa.");
                 break;
             }
         }
     }
-    
 }

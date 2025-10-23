@@ -15,15 +15,11 @@ public class Ejercicio16 {
      */
     public static void main(String[] args) {
         int numerosImpares = 0; // variable que definira la cantidad de numeros impares
-        int i = 20; // numero desde que empezaremos el bucle
         
-        while (i <= 160) {
-            if (i % 2 != 0) { // si es impar
-                System.out.println(i); // lo imprimimos
-                numerosImpares++; // un numero impar más
+        for(int i = 20; i<=160; i++) { // hacemos el bucle
+            if(i % 2 != 0) {
+                numerosImpares++; // sumamos 1 a numerosImpares ya que no es par.
             }
-            
-            i++;
         }
         
         System.out.println("El total de numeros impares ha sido " + numerosImpares); // imprimimos la cantidad de numeros impares
