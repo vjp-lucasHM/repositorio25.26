@@ -55,5 +55,4 @@ public class Ejercicio20 {
         
         return correcto;
     }
-    
 }
