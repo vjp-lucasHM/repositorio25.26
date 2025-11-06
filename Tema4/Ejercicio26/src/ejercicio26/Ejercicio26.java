@@ -28,17 +28,14 @@ public class Ejercicio26 {
     }
     
     public static boolean esPrimo(int numero) {
-        if(numero <= 1) {
-            return true;
+        boolean esPrimo = true;
+        int i = 2;
+        
+        while(i < numero && esPrimo) {
+            esPrimo = false;
         }
         
-        for(int i = 2; i <= numero; i++) {
-            if(numero % i == 0) {
-                return false;
-            }
-        }
-        
-        return true;
+        return esPrimo;
     }
     
 }
