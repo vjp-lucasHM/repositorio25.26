@@ -1,6 +1,9 @@
 package ejercicio15;
 
 public class Main {
+
+    // Definimos el metodo main en el cual creamos las instancias de "Empleado"
+    // y las imprimimos a consola.
     public static void main(String[] args) {
         Empleado empleado1 = new Empleado("Pablo", 1500, new Direccion("Vijay Nagar", "Block B, Dugri Road", "Indore", 50));
         Empleado empleado2 = new Empleado("Rosa", 2000, new Direccion("Vijay Nagar", "Block B, Dugri Road", "Indore", 50));
