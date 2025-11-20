@@ -9,7 +9,6 @@ package ejercicio01;
  * @author alumno
  */
 public class Coche {
-    
     private String marca;
     private String color;
     private String modelo;
