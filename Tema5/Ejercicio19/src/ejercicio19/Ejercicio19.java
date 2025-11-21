@@ -26,9 +26,9 @@ public class Ejercicio19 {
         System.out.println("--- EMPLEADO 3 ---");
         Empleado empleado3 = pedirInfoEmpleado();
         
-        System.out.println("El sueldo bruto de " + empleado1.getNombre() + " por trabajar " + empleado1.getHoras() + " horas es un total de " + empleado1.getTarifa() + " euros");
-        System.out.println("El sueldo bruto de " + empleado2.getNombre() + " por trabajar " + empleado2.getHoras() + " horas es un total de " + empleado2.getTarifa() + " euros");
-        System.out.println("El sueldo bruto de " + empleado3.getNombre() + " por trabajar " + empleado3.getHoras() + " horas es un total de " + empleado3.getTarifa() + " euros");
+        System.out.println("El sueldo bruto de " + empleado1.getNombre() + " por trabajar " + empleado1.getHoras() + " horas es un total de " + empleado1.calcularSueldo() + " euros");
+        System.out.println("El sueldo bruto de " + empleado2.getNombre() + " por trabajar " + empleado2.getHoras() + " horas es un total de " + empleado2.calcularSueldo() + " euros");
+        System.out.println("El sueldo bruto de " + empleado3.getNombre() + " por trabajar " + empleado3.getHoras() + " horas es un total de " + empleado3.calcularSueldo() + " euros");
     }
     
     public static Empleado pedirInfoEmpleado() {

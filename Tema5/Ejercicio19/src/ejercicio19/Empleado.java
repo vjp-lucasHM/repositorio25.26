@@ -10,10 +10,13 @@ package ejercicio19;
  */
 public class Empleado {
     
+    // Definimos los atributos
     private String nombre;
     private int horas;
     private int tarifa;
     
+    
+    // Constructores
     public Empleado() {
         this.nombre = "";
         this.horas = 0;
@@ -26,6 +29,8 @@ public class Empleado {
         this.tarifa = tarifa;
     }
 
+    
+    // Getters y setters
     public int getHoras() {
         return horas;
     }
@@ -49,13 +54,25 @@ public class Empleado {
     public void setHoras(int horas) {
         this.horas = horas;
     }
+    
+    //Metodo de calcular el sueldo de cada empleado
+    public double calcularSueldo() {
+        if(horas <= 40) {
+            return horas*tarifa;
+        } else {
+            double sueldo = 0D;
+            
+            horas -= 40;
+            sueldo += 40*tarifa;
+            sueldo += horas*(tarifa*1.5);
+            
+            return sueldo;
+        }
+    }
 
     @Override
     public String toString() {
-        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return "Empleado{" + "nombre=" + nombre + ", horas=" + horas + ", tarifa=" + tarifa + '}';
     }
-
-    
-    
     
 }
