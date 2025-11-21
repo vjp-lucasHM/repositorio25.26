@@ -73,8 +73,6 @@ public class Ejercicio20 {
                     System.out.println("Saliendo del programa...");
                     exit = true;
                     break;
-                default:
-                    throw new AssertionError();
             }
         } while (!exit);
     }
