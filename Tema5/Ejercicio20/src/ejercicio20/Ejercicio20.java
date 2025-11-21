@@ -25,48 +25,48 @@ public class Ejercicio20 {
             Scanner scanner = new Scanner(System.in);
             mostrarOpciones();
             opcion = scanner.nextInt();
-            
+
             switch (opcion) {
                 case 1:
                     cuenta = new Cuenta();
                     System.out.println("Has creado una nueva cuenta!");
                     break;
-                    
+
                 case 2:
                     Scanner scanner1 = new Scanner(System.in);
                     System.out.println("Por favor, introduce el saldo inicial de tu cuenta...");
-                    
+
                     float saldo = scanner1.nextFloat();
                     cuenta = new Cuenta(saldo);
                     System.out.println("Has creado una nueva cuenta con un saldo inicial de " + saldo);
                     break;
-                    
+
                 case 3:
-                    if(cuenta == null) {
+                    if (cuenta == null) {
                         System.out.println("No has creado una cuenta!");
-                        break;
+                    } else {
+                        float dineroIngresar = pedirSaldo();
+                        cuenta.ingresar(dineroIngresar);
+                        System.out.println("Has ingresado " + dineroIngresar + " en tu cuenta. Tu nuevo saldo es " + cuenta.getSaldo());
                     }
                     
-                    float dineroIngresar = pedirSaldo();
-                    cuenta.ingresar(dineroIngresar);
-                    System.out.println("Has ingresado " + dineroIngresar + " en tu cuenta. Tu nuevo saldo es " + cuenta.getSaldo());
                     break;
                 case 4:
-                    if(cuenta == null) {
+                    if (cuenta == null) {
                         System.out.println("No has creado una cuenta!");
-                        break;
+                    } else {
+                        float dineroExtraer = pedirSaldo();
+                        cuenta.extraer(dineroExtraer);
+                        System.out.println("Has sacado " + dineroExtraer + " euros de tu cuenta! Tu nuevo saldo es " + cuenta.getSaldo());
                     }
                     
-                    float dineroExtraer = pedirSaldo();
-                    cuenta.extraer(dineroExtraer);
-                    System.out.println("Has sacado " + dineroExtraer + " euros de tu cuenta! Tu nuevo saldo es " + cuenta.getSaldo());
                     break;
                 case 5:
-                    if(cuenta == null) {
+                    if (cuenta == null) {
                         System.out.println("No has creado una cuenta!");
                         break;
                     }
-                    
+
                     System.out.println("El saldo de tu cuenta es: " + cuenta.getSaldo());
                     break;
                 case 6:
@@ -80,17 +80,17 @@ public class Ejercicio20 {
     public static void mostrarOpciones() {
         System.out.println("1. - Crear cuenta vacia\n2. - Crear nueva cuenta con saldo inicial\n3. - Ingresar dinero\n4. - Sacar dinero\n5. - Ver saldo\n6. Salir");
     }
-    
+
     public static float pedirSaldo() {
         Scanner scanner = new Scanner(System.in);
         float saldo = 0F;
-        
+
         System.out.println("Por favor, introduce la cantidad de dinero que quieras...");
-        
-        if(scanner.hasNextFloat()) {
+
+        if (scanner.hasNextFloat()) {
             saldo = scanner.nextFloat();
         }
-        
+
         return saldo;
     }
 
