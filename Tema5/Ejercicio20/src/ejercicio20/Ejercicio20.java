@@ -49,7 +49,7 @@ public class Ejercicio20 {
                     
                     float dineroIngresar = pedirSaldo();
                     cuenta.ingresar(dineroIngresar);
-                    System.out.println("Has sacado " + dineroIngresar + " de tu cuenta. Tu nuevo saldo es " + cuenta.getSaldo());
+                    System.out.println("Has ingresado " + dineroIngresar + " en tu cuenta. Tu nuevo saldo es " + cuenta.getSaldo());
                     break;
                 case 4:
                     if(cuenta == null) {
