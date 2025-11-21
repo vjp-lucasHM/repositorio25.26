@@ -13,6 +13,7 @@ public class Cuenta {
     private float saldo;
 
     public Cuenta() {
+        this.saldo = 0F;
     }
 
     public Cuenta(float saldo) {
@@ -37,9 +38,7 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return "Cuenta{" + "saldo=" + saldo + '}';
     }
-    
-    
     
 }
