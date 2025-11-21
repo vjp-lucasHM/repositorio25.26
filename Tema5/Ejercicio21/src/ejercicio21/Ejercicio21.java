@@ -49,37 +49,35 @@ public class Ejercicio21 {
                 case 3:
                     if(cuenta == null) {
                         System.out.println("No has creado una cuenta!");
-                        break;
+                    } else {
+                        float dineroIngresar = pedirSaldo();
+                        cuenta.ingresar(dineroIngresar);
+                        System.out.println("Has sacado " + dineroIngresar + " de tu cuenta. Tu nuevo saldo es " + cuenta.getSaldo());
                     }
                     
-                    float dineroIngresar = pedirSaldo();
-                    cuenta.ingresar(dineroIngresar);
-                    System.out.println("Has sacado " + dineroIngresar + " de tu cuenta. Tu nuevo saldo es " + cuenta.getSaldo());
                     break;
                 case 4:
                     if(cuenta == null) {
                         System.out.println("No has creado una cuenta!");
-                        break;
+                    } else {
+                        float dineroExtraer = pedirSaldo();
+                        cuenta.extraer(dineroExtraer);
                     }
                     
-                    float dineroExtraer = pedirSaldo();
-                    cuenta.extraer(dineroExtraer);
                     break;
                 case 5:
                     if(cuenta == null) {
                         System.out.println("No has creado una cuenta!");
-                        break;
+                    } else {
+                        System.out.println("El saldo de tu cuenta es: " + cuenta.getSaldo());
                     }
                     
-                    System.out.println("El saldo de tu cuenta es: " + cuenta.getSaldo());
                     break;
                 case 6:
                     System.out.println(cuenta);
                     System.out.println("Saliendo del programa...");
                     exit = true;
                     break;
-                default:
-                    throw new AssertionError();
             }
         } while (!exit);
     }
