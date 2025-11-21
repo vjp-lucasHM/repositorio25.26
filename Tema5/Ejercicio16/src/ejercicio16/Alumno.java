@@ -12,16 +12,22 @@ import java.util.Scanner;
  */
 public class Alumno {
     
+    // Definimos los atributos de la clase Alumno
     private String nombre;
     private int nota;
 
-    public Alumno() {}
+    // Definimos los constructores necesarios para esta clase.
+    public Alumno() {
+        this.nombre = "";
+        this.nota = 0;
+    }
 
     public Alumno(String nombre, int nota) {
         this.nombre = nombre;
         this.nota = nota;
     }
 
+    // Definimos los getters y setters necesarios para esta clase.
     public String getNombre() {
         return nombre;
     }
@@ -38,6 +44,11 @@ public class Alumno {
         this.nota = nota;
     }
     
+    // Definimos un metodo que nos sirva para calificar al alumno que corresponda
+    // 0-4 Suspenso
+    // 5-6 Suficiente
+    // 7-8 Notable
+    // 9-10 Sobresaliente
     public String calificar() {
         if(this.nota >= 0 && this.nota <= 4) {
             return "Suspenso";
@@ -52,6 +63,8 @@ public class Alumno {
         return "";
     }
     
+    // Creamos un metodo que nos sirva para pedir la nota al usuario y 
+    // le asignamos la nota directamente al objeto
     public void pedirNota() {
         Scanner scanner = new Scanner(System.in);
         int nota;
@@ -68,6 +81,8 @@ public class Alumno {
         this.nota = nota;
     }
     
+    // Creamos un metodo que nos sirva para pedirle el nombre del alumno al usuario
+    // y le asignamos el valor directamente a la variable.
     public void pedirNombre() {
         Scanner scanner = new Scanner(System.in);
         
@@ -78,7 +93,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return "Alumno{" + "nombre=" + nombre + ", nota=" + nota + '}';
     }
     
 }

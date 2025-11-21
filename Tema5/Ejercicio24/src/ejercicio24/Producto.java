@@ -10,9 +10,11 @@ package ejercicio24;
  */
 public class Producto {
     
+    // Definimos todos los atributos de la clase
     private String fechaCaducidad;
     private int numeroLote;
 
+    // Definimos los constructores de esta clase, ya sean por defecto o parametrizados.
     public Producto() {
         this.fechaCaducidad =  "";
         this.numeroLote = 0;
@@ -23,6 +25,7 @@ public class Producto {
         this.numeroLote = numeroLote;
     }
 
+    // Definimos los getters y los setters
     public int getNumeroLote() {
         return numeroLote;
     }
@@ -38,6 +41,7 @@ public class Producto {
         this.numeroLote = numeroLote;
     }
 
+    // Sobreescribimos el metodo toString por defecto para luego imprimir los objetos instanciados a consola.
     @Override
     public String toString() {
         return "Producto{" + "fechaCaducidad=" + fechaCaducidad + ", numeroLote=" + numeroLote + '}';

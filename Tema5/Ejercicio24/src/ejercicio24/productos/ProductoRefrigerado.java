@@ -10,10 +10,14 @@ import ejercicio24.Producto;
  *
  * @author tumba
  */
+
+// Creamos la ultima subclase de Producto, en este caso ProductoRefrigerado
 public class ProductoRefrigerado extends Producto {
 
+    // Definimos el atributo necesario para esta clase
     private String codigoOrganismo;
 
+    // Creamos los constructores necesarios para esta clase.
     public ProductoRefrigerado() {
         super();
         this.codigoOrganismo = "";
@@ -28,6 +32,7 @@ public class ProductoRefrigerado extends Producto {
         this.codigoOrganismo = codigoOrganismo;
     }
 
+    // Definimos los getters y los setters para la clase
     public String getCodigoOrganismo() {
         return codigoOrganismo;
     }
@@ -36,6 +41,7 @@ public class ProductoRefrigerado extends Producto {
         this.codigoOrganismo = codigoOrganismo;
     }
 
+    // Escribimos el metodo toString para luego imprimir las instancias de este objeto a consola.
     @Override
     public String toString() {
         return "ProductoRefrigerado{" + "codigoOrganismo=" + codigoOrganismo + '}';

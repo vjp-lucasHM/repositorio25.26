@@ -13,9 +13,7 @@ import ejercicio24.productos.*;
  */
 public class Ejercicio24 {
 
-    /**
-     * @param args the command line arguments
-     */
+    // Definimos todas las instancias de los objetos y las imprimimos a consola.
     public static void main(String[] args) {
         ProductoCongelado congelado = new ProductoCongelado(15, "21/11/2025", 15);
         ProductoFresco fresco = new ProductoFresco("16/10/2025", "España", "21/11/2025", 15);

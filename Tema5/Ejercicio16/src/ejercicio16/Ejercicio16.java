@@ -10,9 +10,8 @@ package ejercicio16;
  */
 public class Ejercicio16 {
 
-    /**
-     * @param args the command line arguments
-     */
+    // En el metodo main creamos la instancia de la clase Alumno y invocamos los metodos 
+    // necesarios para pedir el nombre y la nota al usuario y luego imprimimos los datos a consola.
     public static void main(String[] args) {
         Alumno alumno = new Alumno();
         
