@@ -40,7 +40,7 @@ public class CuentaClave extends Cuenta {
 
     @Override
     public String toString() {
-        return "Clave="+clave; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return "CuentaClave{" + "clave=" + clave + '}';
     }
     
 }
