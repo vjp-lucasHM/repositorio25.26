@@ -9,9 +9,22 @@ package ejercicio1;
  * @author alumno
  */
 public class Suma extends Calculadora {
+    
+    private int numSumando;
+    
+    public Suma() {
+        super();
+        this.numSumando = 0;
+    }
+    
+    public Suma(int numero, int numSuma) {
+        super(numero);
+        this.numSumando = numSuma;
+    }
 
     @Override
-    public int realizarOperacion(int num1, int num2) {
-        return num1+num2;
-    }    
+    public void realizarOperacion() {
+        System.out.println("Resultado de " + this.numSumando + " + " + this.getNumero() + ": " + (this.numSumando+this.getNumero()));
+    }
+        
 }

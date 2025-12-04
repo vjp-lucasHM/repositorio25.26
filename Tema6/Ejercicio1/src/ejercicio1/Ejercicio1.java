@@ -14,7 +14,14 @@ public class Ejercicio1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Calculadora suma = new Suma(19, 6);
+        Calculadora multiplicacion = new Multiplicacion(7, 3);
+        Calculadora potencia = new Potencia(7, 2);
+
+        // Aquí invocamos el método de cada objeto
+        suma.realizarOperacion();
+        multiplicacion.realizarOperacion();
+        potencia.realizarOperacion();
     }
     
 }

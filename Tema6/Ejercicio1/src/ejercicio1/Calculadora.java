@@ -10,6 +10,7 @@ package ejercicio1;
  */
 public abstract class Calculadora {
     
+    // Definimos la variable necesaria, constructores, y getter y setter
     private int numero;
 
     public Calculadora() {
@@ -29,7 +30,7 @@ public abstract class Calculadora {
     }
 
     
-    
-    public abstract int realizarOperacion(int num1, int num2);
+    // Defino el metodo abstracto que todas las clases hijas heredaran
+    public abstract void realizarOperacion();
     
 }
