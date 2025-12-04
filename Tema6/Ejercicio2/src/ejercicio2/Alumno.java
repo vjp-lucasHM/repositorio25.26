@@ -9,16 +9,33 @@ package ejercicio2;
  * @author alumno
  */
 public class Alumno extends Persona {
+    
     private String grupo;
 
-    // Esto es para crear un alumno con nombre y grupo
+    // Definimos los constructores de esta clase
     public Alumno(String nombre, String grupo) {
         super(nombre);
         this.grupo = grupo;
     }
 
-    // Esto es para devolver el saludo del alumno
+    public Alumno() {
+        super();
+        this.grupo = "";
+    }
+
+    // Defino los getters y los setters
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }    
+
+    // Sobreescribo el metodo saludar de persona
+    @Override
     public String saludar() {
         return "Hola, soy el alumno " + getNombre() + " y estoy en el grupo de " + grupo + ".";
     }
+    
 }

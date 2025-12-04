@@ -18,7 +18,20 @@ public class Profesor extends Persona {
         this.especialidad = especialidad;
     }
 
-    // Esto es para devolver el saludo del profesor
+    public Profesor() {
+        super();
+        this.especialidad ="";
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    // Sobreescribo el metodo saludar de persona
     public String saludar() {
         return "Hola, soy el profesor " + getNombre() + " y soy de la especialidad de " + especialidad + ".";
     }

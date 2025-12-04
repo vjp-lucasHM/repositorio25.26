@@ -13,7 +13,11 @@ public abstract class Persona {
     // Atributo común
     private String nombre;
 
-    // Constructor: esto es para inicializar el nombre
+    // Defino los constructores de persona
+    public Persona() {
+        this.nombre = "";
+    }
+
     public Persona(String nombre) {
         this.nombre = nombre;
     }
@@ -26,7 +30,7 @@ public abstract class Persona {
         this.nombre = nombre;
     }
 
-    // Método abstracto: cada subclase debe implementarlo
+    // Metodo abstracto
     public abstract String saludar();
     
 }
