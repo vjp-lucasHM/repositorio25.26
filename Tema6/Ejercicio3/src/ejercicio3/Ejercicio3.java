@@ -14,35 +14,35 @@ public class Ejercicio3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Objetos que se crean de cada figura con sus atributos
-        Circulo cir = new Circulo("Azul", 5.5);
-        Rectangulo r = new Rectangulo("Verde", 4.75, 5.56);
-        Cuadrado cua = new Cuadrado("Verde", 6.75);
-        TrianguloRectangulo tr = new TrianguloRectangulo("Amarillo", 5, 5.90);
+        // Creamos los objetos de cada figura geometrica
+        Circulo circulo = new Circulo("Azul", 5.5);
+        Rectangulo rectangulo = new Rectangulo("Verde", 4.75, 5.56);
+        Cuadrado cuadrado = new Cuadrado("Verde", 6.75);
+        TrianguloRectangulo triangulo = new TrianguloRectangulo("Amarillo", 5, 5.90);
         
         //Mostrar datos de cada figura usando el método auxiliar mostrarFigura()
-        mostrarFigura(cir);
-        mostrarFigura(r);
-        mostrarFigura(cua);
-        mostrarFigura(tr);
+        mostrarFigura(circulo);
+        mostrarFigura(rectangulo);
+        mostrarFigura(cuadrado);
+        mostrarFigura(triangulo);
         
-        //Métodos específicos del triángulo rectángulo
-        System.out.println("Hipotenusa del triangulo: " + tr.calcularHipotenusa());
-        System.out.println("Tipo de triangulo: " + tr.getTipoTriangulo());
+        // Metodos del triangulo
+        System.out.println("Hipotenusa del triangulo: " + triangulo.calcularHipotenusa());
+        System.out.println("Tipo: " + triangulo.getTipoTriangulo());
         
         System.out.println("");
         
         //Objetos que se crean desde la Clase FiguraGeometrica
-        FiguraGeometrica fgcir = new Circulo("Rojo", 5.5);
-        FiguraGeometrica fgr = new Rectangulo("Azul", 6.75, 2.56);
-        FiguraGeometrica fgcua = new Cuadrado("Rojo", 4.75);
-        FiguraGeometrica fgtr = new TrianguloRectangulo("Verde", 2.75, 2.75);
+        FiguraGeometrica figuraCirculo = new Circulo("Rojo", 5.5);
+        FiguraGeometrica figuraRectangulo = new Rectangulo("Azul", 6.75, 2.56);
+        FiguraGeometrica figuraCuadrado = new Cuadrado("Rojo", 4.75);
+        FiguraGeometrica figuraTriangulo = new TrianguloRectangulo("Verde", 2.75, 2.75);
         
-        //Mostrar datos de las figuras con poliformismo
-        mostrarFigura(fgcir);
-        mostrarFigura(fgr);
-        mostrarFigura(fgcua);
-        mostrarFigura(fgtr);
+        // Creamos los objetos de cada figura geometrica usando polimorfismo
+        mostrarFigura(figuraCirculo);
+        mostrarFigura(figuraRectangulo);
+        mostrarFigura(figuraCuadrado);
+        mostrarFigura(figuraTriangulo);
     }
     
     public static void mostrarFigura(FiguraGeometrica figura){
