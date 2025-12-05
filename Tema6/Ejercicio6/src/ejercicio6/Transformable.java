@@ -14,6 +14,6 @@ public interface Transformable {
     String obtenerIniciales();
     int contarVocales();
     String obtenerCadenaMasLarga();
-    boolean buscarCadena();
+    boolean buscarCadena(String s);
     
 }
