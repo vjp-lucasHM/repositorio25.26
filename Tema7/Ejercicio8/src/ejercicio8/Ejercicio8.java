@@ -4,9 +4,6 @@
  */
 package ejercicio8;
 
-import java.io.ByteArrayInputStream;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -20,8 +17,9 @@ public class Ejercicio8 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] arr = dividirEnCifras(pedirNumero());
-        mostrarArray(arr);
+        int[] numero = new int[5];
+        int[] arr = dividirEnCifras(pedirNumero(), numero);
+        System.out.println(arr);
     }
     
     public static int pedirNumero() {
@@ -48,10 +46,8 @@ public class Ejercicio8 {
         return toReturn;
     }
     
-    public static int[] dividirEnCifras(int numero) {
-        int[] array = new int[5];
-
-        for (int i = array.length - 1; i >= 0; i--) {
+    public static int[] dividirEnCifras(int numero, int[] array) {
+        for (int i = 0; i < array.length; i++) {
             array[i] = numero % 10;
             numero /= 10;
         }
