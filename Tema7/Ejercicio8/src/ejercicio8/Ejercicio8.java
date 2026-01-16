@@ -19,33 +19,36 @@ public class Ejercicio8 {
     public static void main(String[] args) {
         int[] numero = new int[5];
         int[] arr = dividirEnCifras(pedirNumero(), numero);
-        System.out.println(arr);
+        mostrarArray(arr);
     }
-    
+
     public static int pedirNumero() {
-        int toReturn = 0;
+        Scanner scanner = new Scanner(System.in);
+        int numero;
         boolean valido = false;
-        
+
         do {
-            Scanner scanner = new Scanner(System.in);
-            
             System.out.println("Introduce un numero de 5 cifras (10000-99999)");
-            
+
             try {
-                if(scanner.nextInt() >= 10000 && scanner.nextInt() <= 99999) {
-                    toReturn = scanner.nextInt();
+                numero = scanner.nextInt();
+
+                if (numero >= 10000 && numero <= 99999) {
                     valido = true;
+                    return numero;
                 } else {
                     System.out.println("Introduce un numero valido! (10000-99999)");
                 }
-            } catch(InputMismatchException ex) {
+
+            } catch (InputMismatchException ex) {
                 System.out.println("Introduce un numero valido! (10000-99999)");
             }
-        } while(!valido);
-        
-        return toReturn;
+
+        } while (!valido);
+
+        return 0;
     }
-    
+
     public static int[] dividirEnCifras(int numero, int[] array) {
         for (int i = 0; i < array.length; i++) {
             array[i] = numero % 10;
@@ -54,11 +57,11 @@ public class Ejercicio8 {
 
         return array;
     }
-    
+
     public static void mostrarArray(int[] array) {
-        for(int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
     }
-    
+
 }
