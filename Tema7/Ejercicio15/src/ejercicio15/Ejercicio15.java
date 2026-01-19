@@ -92,7 +92,7 @@ public class Ejercicio15 {
     public static int sumarArray(int[] vector) {
         int suma = 0;
         
-        for(int num : vector ){
+        for(int num : vector){
             suma += num;
         }
         
