@@ -12,12 +12,12 @@ import java.util.Scanner;
  * @author alumno
  */
 public class Ejercicio16 {
-    
-    String[] asignaturas = {"Lengua", "Mates", "Historia", "Física"};
-
     public static void main(String[] args) {
         int[][] matriz = new int[6][4];
         boolean exit = false;
+        
+        String[] asignaturas = {"Lengua", "Mates", "Historia", "Física"};
+        String[] alumnos = {"Pepe", "Juan", "Ana", "Marta", "Pedro", "María"};
 
         do {
             mostrarMenu();
@@ -31,13 +31,13 @@ public class Ejercicio16 {
                     mostrarNotas(matriz);
                     break;
                 case 3:
-                    hacerMejorMedia(matriz);
+                    hacerMejorMedia(matriz, alumnos);
                     break;
                 case 4:
-                    getAlumnoMasSuspensos(matriz);
+                    getAlumnoMasSuspensos(matriz, alumnos);
                     break;
                 case 5:
-                    sacarAsignaturaMasDificil(matriz);
+                    sacarAsignaturaMasDificil(matriz, asignaturas);
                     break;
                 case 6:
                     System.out.println("Saliendo del programa...");
@@ -47,10 +47,7 @@ public class Ejercicio16 {
         } while(!exit);
     }
     
-    public static void hacerMejorMedia(int[][] matriz) {
-        
-        String[] alumnos = {"Pepe", "Juan", "Ana", "Marta", "Pedro", "María"};
-        
+    public static void hacerMejorMedia(int[][] matriz, String[] alumnos) {        
         int mejorMedia = 0;
         String mejorAlumno = "";
         
@@ -72,11 +69,9 @@ public class Ejercicio16 {
         System.out.println("El alumno con mejor nota es " + mejorAlumno + " con una media de " + mejorMedia);
     }
     
-    public static void getAlumnoMasSuspensos(int[][] matriz) {
+    public static void getAlumnoMasSuspensos(int[][] matriz, String[] alumnos) {
         int numSuspensos = -1000;
         String alumno = "";
-        
-        String[] alumnos = {"Pepe", "Juan", "Ana", "Marta", "Pedro", "María"};
         
         for(int i = 0; i < matriz.length; i++) {
             int suspensos = 0;
@@ -104,11 +99,9 @@ public class Ejercicio16 {
         }
     }
     
-    public static void sacarAsignaturaMasDificil(int[][] matriz) {
+    public static void sacarAsignaturaMasDificil(int[][] matriz, String[] asignaturas) {
         int peorMedia = 999;
         String peor = "";
-        
-        String[] asignaturas = {"Lengua", "Mates", "Historia", "Fisica"};
         
         for(int i = 0; i < matriz.length; i++) {
             int suma = 0;
