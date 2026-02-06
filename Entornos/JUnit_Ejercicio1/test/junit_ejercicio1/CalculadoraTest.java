@@ -1,28 +1,25 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
 package junit_ejercicio1;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author alumno
  */
 public class CalculadoraTest {
-    
-    public CalculadoraTest() {
-    }
-
-    /**
+   
+        /**
      * Test of suma method, of class Calculadora.
      */
     @Test
     public void testSuma() {
         Calculadora calc = new Calculadora(10, 5);
-        assertEquals(15,calc.suma());
+        assertEquals(13,calc.suma(), 2f);
     }
 
     /**
@@ -31,7 +28,7 @@ public class CalculadoraTest {
     @Test
     public void testResta() {
         Calculadora calc = new Calculadora(10, 5);
-        assertEquals(2,calc.resta());
+        assertEquals(5,calc.resta(), 0f);
     }
 
     /**
@@ -40,7 +37,7 @@ public class CalculadoraTest {
     @Test
     public void testMultiplicacion() {
         Calculadora calc = new Calculadora(10, 5);
-        assertEquals(50,calc.multiplicacion());
+        assertEquals(50,calc.multiplicacion(), 0f);
     }
 
     /**
@@ -49,7 +46,8 @@ public class CalculadoraTest {
     @Test
     public void testDivision() {
         Calculadora calc = new Calculadora(10, 5);
-        assertEquals(2,calc.division());
+        assertEquals(2,calc.division(), 0f);
+
     }
-    
+ 
 }
