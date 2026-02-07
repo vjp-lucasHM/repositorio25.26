@@ -34,6 +34,7 @@ public class Calculadora {
         if (b == 0) {
             throw new ArithmeticException("No se puede dividir entre cero");
         }
+           
         return a / b;
     }
 }

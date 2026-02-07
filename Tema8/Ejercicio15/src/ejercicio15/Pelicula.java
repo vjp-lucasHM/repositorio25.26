@@ -12,18 +12,18 @@ public class Pelicula {
     
     private String titulo;
     private double costeLicencia;
-    private Socio[] vistas;
+    private Socio[] socios;
     
     public Pelicula() {
         this.titulo = "";
         this.costeLicencia = 0F;
-        this.vistas = new Socio[3];
+        this.socios = new Socio[3];
     }
     
     public Pelicula(String titulo, double costeLicencia, Socio[] vistas) {
         this.titulo = titulo;
         this.costeLicencia = costeLicencia;
-        this.vistas = new Socio[3];
+        this.socios = new Socio[3];
     }
 
     public String getTitulo() {
@@ -42,19 +42,23 @@ public class Pelicula {
         this.costeLicencia = costeLicencia;
     }
 
-    public Socio[] getVistas() {
-        return vistas;
+    public Socio[] getSocios() {
+        return socios;
     }
 
-    public void setVistas(Socio[] vistas) {
-        this.vistas = vistas;
+    public void setSocios(Socio[] socios) {
+        this.socios = socios;
     }
 
     @Override
     public String toString() {
-        return "Pelicula{" + "titulo=" + titulo + ", costeLicencia=" + costeLicencia + ", vistas=" + vistas + '}';
+        return "Pelicula{" + "titulo=" + titulo + ", costeLicencia=" + costeLicencia + ", socios=" + socios + '}';
     }
     
-    
+    public void mostrarSocios() {
+        for(Socio socio : socios) {
+            System.out.println(socio.toString());
+        }
+    }
     
 }
