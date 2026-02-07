@@ -10,10 +10,14 @@ package ejercicio13;
  */
 public class Alumno {
     
+    // En esta clase tendremos todos los atributos, metodos y constructores necesarios para la clase alumno
+
+    // atributos
     private String nombre;
     private int edad;
     private float notaMedia;
     
+    // constructor por defecto y parametrizado
     public Alumno() {
         this.nombre = "";
         this.edad = 0;
@@ -26,6 +30,7 @@ public class Alumno {
         this.notaMedia = notaMedia;
     }
 
+    // getters
     public String getNombre() {
         return nombre;
     }
@@ -38,6 +43,7 @@ public class Alumno {
         return notaMedia;
     }
 
+    // Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -50,6 +56,7 @@ public class Alumno {
         this.notaMedia = notaMedia;
     }
 
+    // toString
     @Override
     public String toString() {
         return "Alumno{" + "nombre=" + nombre + ", edad=" + edad + ", notaMedia=" + notaMedia + '}';

@@ -10,10 +10,14 @@ package ejercicio6;
  */
 public class Trabajador {
     
+    // en esta clase definiremos todo lo necesario para la clase Trabajador
+    
+    // atributos
     private String nombre;
     private int numHoras;
     private double tarifa;
 
+    // constructores
     public Trabajador() {
         this.nombre = "";
         this.numHoras = 0;
@@ -26,6 +30,7 @@ public class Trabajador {
         this.tarifa = tarifa;
     }
 
+    // getters
     public String getNombre() {
         return nombre;
     }
@@ -38,6 +43,8 @@ public class Trabajador {
         return tarifa;
     }
 
+    
+    // setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -50,21 +57,23 @@ public class Trabajador {
         this.tarifa = tarifa;
     }
 
+    // toString()
     @Override
     public String toString() {
         return "Trabajador{" + "nombre=" + nombre + ", numHoras=" + numHoras + ", tarifa=" + tarifa + '}';
     }
     
-    public static void mostrarSueldo(Trabajador trabajador) {
+    // metodo que usaremos para mostrar el sueldo del trabajador
+    public void mostrarSueldo() {
         double sueldo = 0D;
-        if(trabajador.getNumHoras() > 40) {
-            sueldo += trabajador.getTarifa()*40;
-            sueldo += (trabajador.getTarifa() * 1.5)*(trabajador.getNumHoras()-40);
+        if(getNumHoras() > 40) {
+            sueldo += getTarifa()*40;
+            sueldo += (getTarifa() * 1.5)*(getNumHoras()-40);
         } else {
-            sueldo += trabajador.getTarifa()*trabajador.getNumHoras();
+            sueldo += getTarifa()*getNumHoras();
         }
         
-        System.out.println(trabajador.getNombre() + " trabajo " + trabajador.getNumHoras() + ", cobra " + trabajador.getTarifa() + " la hora por lo que le corresponde un sueldo de " + sueldo + " euros.");
+        System.out.println(getNombre() + " trabajo " + getNumHoras() + " horas, cobra " + getTarifa() + " la hora por lo que le corresponde un sueldo de " + sueldo + " euros.");
     }
     
 }

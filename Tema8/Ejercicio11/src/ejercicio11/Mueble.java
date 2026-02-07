@@ -11,11 +11,11 @@ package ejercicio11;
 public class Mueble {
     
     private String descripcion;
-    private float precio;
+    private double precio;
 
     public Mueble() {
         this.descripcion = "";
-        this.precio = 0F;
+        this.precio = 0D;
     }
 
     public Mueble(String descripcion, float precio) {
@@ -27,7 +27,7 @@ public class Mueble {
         return descripcion;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -35,7 +35,7 @@ public class Mueble {
         this.descripcion = descripcion;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
     
