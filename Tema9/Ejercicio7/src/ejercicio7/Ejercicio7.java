@@ -4,6 +4,8 @@
  */
 package ejercicio7;
 
+import java.util.Scanner;
+
 /**
  *
  * @author alumno
@@ -14,7 +16,13 @@ public class Ejercicio7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Introduce una frase:");
+        char[] frase = scanner.nextLine().toCharArray();
+        
+        for(int i = frase.length - 1; i >= 0; i--) {
+            System.out.println(frase[i]);
+        }
     }
-    
 }
