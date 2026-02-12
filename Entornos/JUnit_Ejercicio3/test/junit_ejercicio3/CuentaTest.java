@@ -44,5 +44,4 @@ public class CuentaTest {
         String esperado = "Cuenta={titular=Lucas, cantidad=200.0}";
         assertEquals(esperado, this.cuenta.toString());
     }
-    
 }
