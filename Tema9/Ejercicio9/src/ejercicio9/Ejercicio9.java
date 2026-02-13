@@ -29,7 +29,7 @@ public class Ejercicio9 {
         // se la seguimos pidiendo
         do {
             System.out.print("Introduce tu contraseña: ");
-            contrasena = scanner.nextLine();
+            String contrasena = scanner.nextLine();
 
             // si la contraseña es valida, nos salimos del bucle
             if (esContraseñaValida(contrasena, usuario)) {
