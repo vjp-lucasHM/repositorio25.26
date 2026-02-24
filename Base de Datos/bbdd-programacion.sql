@@ -329,3 +329,5 @@ SELECT COUNT(CIF) FROM DISTRIBUYE WHERE CODIGO=7;
 
 -- 47. Calcular el número de registros que se han realizado por Internet.
 SELECT COUNT(*) FROM REGISTRA WHERE MEDIO="Internet";
+
+-- 
