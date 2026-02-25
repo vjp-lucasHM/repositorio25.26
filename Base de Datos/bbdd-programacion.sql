@@ -243,8 +243,8 @@ WHERE PROGRAMA.NOMBRE="Windows";
 
 -- 25. Genera un listado de los programas y cantidades que se han distribuido a El  Corte Inglés de Madrid.
 SELECT PROGRAMA.NOMBRE,PROGRAMA.VERSION,DISTRIBUYE.CANTIDAD FROM PROGRAMA
-INNER JOIN DISTRIBUYE ON PROGRAMA.CODIGO=DISTRIBUYE.CODIGO
-INNER JOIN COMERCIO ON DISTRIBUYE.CIF=COMERCIO.CIF
+INNER JOIN DISTRIBUYE USING(CODIGO)
+INNER JOIN COMERCIO USING(CIF)
 WHERE COMERCIO.NOMBRE="El Corte Inglés" AND COMERCIO.CIUDAD="Madrid";
 
 -- 26. ¿Qué fabricante ha desarrollado Freddy Hardest?
@@ -254,12 +254,14 @@ INNER JOIN PROGRAMA USING(CODIGO)
 WHERE PROGRAMA.NOMBRE='Freddy Hardest';
 
 -- 27. Selecciona el nombre de los programas que se registran por Internet.
-SELECT DISTINCT PROGRAMA.NOMBRE FROM PROGRAMA
-INNER JOIN REGISTRA USING(CODIGO);
+SELECT PROGRAMA.NOMBRE, REGISTRA.MEDIO FROM PROGRAMA
+INNER JOIN REGISTRA USING(CODIGO)
+WHERE REGISTRA.MEDIO="Internet";
 
 -- 28. Selecciona el nombre de las personas que se registran por Internet.
-SELECT DISTINCT CLIENTE.NOMBRE FROM CLIENTE
-INNER JOIN REGISTRA USING(DNI);
+SELECT CLIENTE.NOMBRE, REGISTRA.MEDIO FROM CLIENTE
+INNER JOIN REGISTRA USING(DNI)
+WHERE REGISTRA.MEDIO="Internet";
 
 -- 29. ¿Qué medios ha utilizado para registrarse Pepe Pérez?
 SELECT REGISTRA.MEDIO FROM REGISTRA
@@ -269,7 +271,7 @@ WHERE CLIENTE.NOMBRE="Pepe Pérez";
 -- 30. ¿Qué usuarios han optado por Internet como medio de registro?
 SELECT CLIENTE.NOMBRE FROM CLIENTE
 INNER JOIN REGISTRA USING(DNI)
-WHERE REGISTRA.MEDIO="Internet";
+WHERE REGISTRA.MEDIO='Internet';
 
 -- 31. ¿Qué programas han recibido registros por tarjeta postal?
 SELECT PROGRAMA.CODIGO,PROGRAMA.NOMBRE FROM PROGRAMA
@@ -294,7 +296,7 @@ INNER JOIN PROGRAMA USING(CODIGO)
 INNER JOIN COMERCIO USING(CIF);
 
 -- 35. Genera un listado con las ciudades en las que se pueden obtener los productos de Oracle.
-SELECT DISTINCT COMERCIO.CIUDAD FROM COMERCIO
+SELECT COMERCIO.CIUDAD FROM COMERCIO
 INNER JOIN DISTRIBUYE USING(CIF)
 INNER JOIN PROGRAMA USING(CODIGO)
 INNER JOIN DESARROLLA USING(CODIGO)
@@ -330,4 +332,19 @@ SELECT COUNT(CIF) FROM DISTRIBUYE WHERE CODIGO=7;
 -- 47. Calcular el número de registros que se han realizado por Internet.
 SELECT COUNT(*) FROM REGISTRA WHERE MEDIO="Internet";
 
--- 
+-- 48. Obtener el número total de programas que se han vendido en 'Sevilla'.
+SELECT COUNT(CANTIDAD) FROM DISTRIBUYE
+INNER JOIN COMERCIO USING(CIF)
+WHERE COMERCIO.CIUDAD="Sevilla";
+
+-- 49. Calcular el número total de programas que han desarrollado los fabricantes cuyo país es 'Estados Unidos'.
+SELECT COUNT(*) FROM PROGRAMA 
+INNER JOIN DESARROLLA USING(CODIGO)
+INNER JOIN FABRICANTE USING(ID_FAB)
+WHERE FABRICANTE.PAIS="Estados Unidos";
+
+-- 50. Visualiza el nombre de todos los clientes en mayúscula. En el resultado de la consulta debe aparecer también la longitud de la cadena nombre. Utilizar las funciones upper y length
+SELECT UPPER(NOMBRE) AS Nombre, LENGTH(NOMBRE) AS Longitud FROM CLIENTE;
+
+-- 51. Con una consulta concatena los campos nombre y versión de la tabla programa. Utilizar la función concat.
+SELECT CONCAT(NOMBRE,VERSION) FROM PROGRAMA;
