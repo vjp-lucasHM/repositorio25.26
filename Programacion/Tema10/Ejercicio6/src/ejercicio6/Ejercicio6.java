@@ -131,7 +131,9 @@ public class Ejercicio6 {
             System.out.println("Mes o meses con mas ventas (" + max + "):");
             
             for(int i = 0; i < lista.size(); i++) {
-                System.out.println(meses[i]);
+                if(lista.get(i) == max) {
+                    System.out.println(meses[i]);
+                }
             }
         }
     }
