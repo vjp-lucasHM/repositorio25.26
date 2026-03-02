@@ -309,7 +309,18 @@ INNER JOIN REGISTRA USING(DNI)
 INNER JOIN PROGRAMA USING(CODIGO)
 WHERE PROGRAMA.NOMBRE="Paradox" AND PROGRAMA.VERSION="2";
 
--- FALTA DE HACER LAS SUBCONSULTAS
+-- 37) Nombre de aquellos fabricantes cuyo país es el mismo que 'Oracle'. (Subconsulta).
+SELECT NOMBRE FROM FABRICANTE WHERE PAIS = ( SELECT PAIS FROM FABRICANTE WHERE NOMBRE = 'Oracle') and NOMBRE <> 'Oracle';
+
+		 		  
+-- 38) Nombre de aquellos clientes que tienen la misma edad que Pepe Pérez. (Subconsulta).
+
+SELECT * FROM CLIENTE WHERE EDAD = (SELECT EDAD FROM CLIENTE WHERE NOMBRE = 'Pepe Pérez');
+
+		  
+-- 39) Genera un listado con los comercios que tienen su sede en la misma ciudad que tiene el comercio 'Centro Mail'. (Subconsulta).
+
+SELECT * FROM COMERCIO WHERE CIUDAD IN ( SELECT CIUDAD FROM COMERCIO WHERE NOMBRE = 'Centro Mail');
 
 -- 41. Obtener el número de programas que hay en la tabla programas.
 SELECT COUNT(*) FROM PROGRAMA;
