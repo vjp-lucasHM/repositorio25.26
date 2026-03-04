@@ -123,6 +123,62 @@ INSERT INTO historial_salarial (DNI_EMPLEADO, SALARIO, FECHA_COMIENZO, FECHA_FIN
 INSERT INTO universidades (COD_UNIV, NOMBRE_UNIV, CIUDAD, MUNICIPIO, CODPOSTAL) VALUES (1, 'Universidad Complutense', 'Madrid', 'Moncloa', '28040'), (2, 'Universidad de Barcelona', 'Barcelona', 'Les Corts', '08028'), (3, 'Universidad de Sevilla', 'Sevilla', 'Nervión', '41013'), (4, 'Universidad de Valencia', 'Valencia', 'Blasco Ibáñez', '46010'); 
 INSERT INTO estudios (EMPLEADO_DNI, UNIVERSIDAD, AÑO, GRADO, ESPECIALIDAD) VALUES ('12345678A', 1, 2008, 'ING', 'Informática'), ('23456789B', 2, 2012, 'ADE', 'Marketing'), ('34567890C', 3, 2005, 'ECO', 'Finanzas'), ('45678901D', 4, 2016, 'DER', 'Derecho Empresarial'); 
 
+-- 1. Obtener el nombre y apellido de los empleados junto con el departamento en el que trabajan.
 SELECT NOMBRE,APELLIDO1,NOMBRE_DPTO FROM EMPLEADOS
 INNER JOIN HISTORIAL_LABORAL ON HISTORIAL_LABORAL.DNI_EMPLEADO=EMPLEADOS.DNI
 INNER JOIN DEPARTAMENTOS ON DEPARTAMENTOS.COD_DPTO=HISTORIAL_LABORAL.COD_DPTO;
+
+-- 2. Listar los nombres de los empleados junto con el nombre de su puesto de trabajo
+SELECT EMPLEADOS.NOMBRE,EMPLEADOS.APELLIDO1,TRABAJOS.NOMBRE_TRAB FROM EMPLEADOS
+INNER JOIN HISTORIAL_LABORAL ON HISTORIAL_LABORAL.DNI_EMPLEADO=EMPLEADOS.DNI
+INNER JOIN TRABAJOS ON HISTORIAL_LABORAL.COD_TRABAJO=TRABAJOS.COD_TRABAJO;
+
+-- 3. Obtener el historial salarial de cada empleado, mostrando su nombre y su salario.
+SELECT EMPLEADOS.NOMBRE,EMPLEADOS.APELLIDO1,HISTORIAL_SALARIAL.FECHA_COMIENZO,HISTORIAL_SALARIAL.FECHA_FIN,HISTORIAL_SALARIAL.SALARIO FROM EMPLEADOS
+INNER JOIN HISTORIAL_SALARIAL ON HISTORIAL_SALARIAL.DNI_EMPLEADO=EMPLEADOS.DNI;
+
+-- 4. Mostrar el nombre de la universidad donde estudió cada empleado. 
+SELECT EMPLEADOS.NOMBRE,EMPLEADOS.APELLIDO1,UNIVERSIDADES.NOMBRE_UNIV FROM EMPLEADOS
+INNER JOIN ESTUDIOS ON ESTUDIOS.EMPLEADO_DNI=EMPLEADOS.DNI
+INNER JOIN UNIVERSIDADES ON ESTUDIOS.UNIVERSIDAD=UNIVERSIDADES.COD_UNIV;
+	
+-- 5. Obtener el presupuesto de cada departamento y el número de empleados que tiene. -------------
+SELECT DEPARTAMENTOS.NOMBRE_DPTO,DEPARTAMENTOS.PRESUPUESTO,COUNT(HISTORIAL_LABORAL.DNI_EMPLEADO) FROM DEPARTAMENTOS
+INNER JOIN HISTORIAL_LABORAL ON DEPARTAMENTOS.COD_DPTO=HISTORIAL_LABORAL.COD_DPTO;
+
+-- 6. Mostrar el nombre de los empleados junto con su puesto de trabajo y el salario asociado. 
+SELECT EMPLEADOS.NOMBRE,EMPLEADOS.APELLIDO1,TRABAJOS.NOMBRE_TRAB,HISTORIAL_SALARIAL.SALARIO FROM EMPLEADOS
+INNER JOIN HISTORIAL_LABORAL ON EMPLEADOS.DNI=HISTORIAL_LABORAL.DNI_EMPLEADO
+INNER JOIN TRABAJOS ON HISTORIAL_LABORAL.COD_TRABAJO=TRABAJOS.COD_TRABAJO
+INNER JOIN HISTORIAL_SALARIAL ON EMPLEADOS.DNI=HISTORIAL_SALARIAL.DNI_EMPLEADO;
+-- 7. Obtener los  datos de los EMPLEADOS, la UNIVERSIDAD en que estudiaron  y su puesto de trabajo. 
+SELECT EMPLEADOS.NOMBRE,EMPLEADOS.APELLIDO1,TRABAJOS.NOMBRE_TRAB,UNIVERSIDADES.NOMBRE_UNIV FROM EMPLEADOS
+INNER JOIN HISTORIAL_LABORAL ON EMPLEADOS.DNI=HISTORIAL_LABORAL.DNI_EMPLEADO
+INNER JOIN TRABAJOS ON HISTORIAL_LABORAL.COD_TRABAJO=TRABAJOS.COD_TRABAJO
+INNER JOIN ESTUDIOS ON ESTUDIOS.EMPLEADO_DNI=EMPLEADOS.DNI
+INNER JOIN UNIVERSIDADES ON ESTUDIOS.UNIVERSIDAD=UNIVERSIDADES.COD_UNIV;
+
+-- 8. Listar los departamentos con su presupuesto y los empleados que han trabajado en ellos. 
+
+-- 9. Obtener la evolución salarial de los empleados en función de su historial de trabajo. 
+-- 10. Mostrar los EMPLEADOS con sus ESTUDIOS (AÑO, GRADO), el nombre de la universidad, el NOMBRE del departamento en el que trabajan y su puesto de trabajo. 
+-- 11. Obtener la información de cada empleado (nombre y apellido1), su historial de trabajo, departamento,estudios y universidad donde estudió. 
+-- 12. Mostrar todos los supervisores y los empleados que supervisan, junto con el departamento y su puesto de trabajo. 
+-- 13. Listar los empleados con su puesto de trabajo, el salario y la universidad donde estudiaron. 
+-- 14. Obtener el historial laboral de los empleados, mostrando su departamento, puesto de trabajo y salario a lo largo del tiempo. 
+-- 15. Mostrar los empleados junto con sus estudios, su puesto de trabajo actual y el presupuesto del departamento en el que trabajan. 
+-- 16. Obtener los empleados que trabajan en un departamento específico (ELIGE UNO CUALQUIERA). 
+-- 17. Listar los empleados cuyo salario actual es superior a 3000. 
+-- 18. Obtener los empleados que estudiaron en universidades de Madrid. 
+-- 19. Mostrar los empleados cuyo primer apellido comienza con "G". 
+-- 20. Obtener los empleados que nacieron entre 1980 y 1995. 
+-- 21. Listar los empleados con su puesto de trabajo y su salario, ordenados de mayor a menor salario. 
+-- 22. Mostrar los empleados que trabajan en un departamento con presupuesto mayor a 100000. 
+-- 23. Obtener los empleados que han trabajado en más de un puesto de trabajo. 
+-- 24. Listar los empleados con su puesto de trabajo, pero solo aquellos que han tenido aumentos de salario. 
+-- 25. Obtener los empleados con estudios en universidades cuyo nombre contenga "Tecnológica". 
+-- 26. Mostrar los empleados junto con su departamento y salario, pero solo aquellos con un sueldo mayor al promedio. 
+-- 27. Obtener la lista de empleados que tienen supervisor y mostrar también el nombre del supervisor. 
+-- 28. Listar los empleados con su puesto de trabajo y la última universidad en la que estudiaron. 
+-- 29. Obtener los empleados que han trabajado en más de un departamento y su puesto actual. 
+-- 30. Obtener la lista de EMPLEADOS con su puesto de trabajo y el departamento donde trabajan, pero solo los que han trabajado más de 5 años en la empresa. 

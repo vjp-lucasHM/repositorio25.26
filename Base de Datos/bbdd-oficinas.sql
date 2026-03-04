@@ -149,3 +149,5 @@ VALUES (1,0001,'2012/1/1',2101,1,001,20,NULL),
 
 -- 1. Listar todos los datos de las oficinas. 
 SELECT * FROM OFICINAS;
+
+--
