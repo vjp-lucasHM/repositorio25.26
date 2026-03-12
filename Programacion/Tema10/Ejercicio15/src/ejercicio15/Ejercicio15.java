@@ -31,7 +31,8 @@ public class Ejercicio15 {
                 case 2 -> mostrarEmpresas(empresas);
                 case 3 -> mostrarEmpleadosConA(empresas);
                 case 4 -> ordenarEmpleadosSueldo(empresas);
-                case 5 -> System.out.println("Saliendo del programa...")
+                case 5 -> System.out.println("Saliendo del programa...");
+                default -> System.out.println("Opcion invalida!");
             }
         } while(opcion != 5);
     }
