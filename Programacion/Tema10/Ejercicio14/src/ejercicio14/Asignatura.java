@@ -10,9 +10,13 @@ package ejercicio14;
  */
 public class Asignatura {
     
+    // atributos
+    
     private String nombre;
     private float nota;
 
+    // Constructores
+    
     public Asignatura() {
         this.nombre = "";
         this.nota = 0F;
@@ -22,6 +26,8 @@ public class Asignatura {
         this.nombre = nombre;
         this.nota = nota;
     }
+    
+    // Getters y setters
 
     public String getNombre() {
         return nombre;
@@ -39,6 +45,8 @@ public class Asignatura {
         this.nota = nota;
     }
 
+    // Mostrar
+    
     @Override
     public String toString() {
         return "Asignatura{" + "nombre=" + nombre + ", nota=" + nota + '}';
