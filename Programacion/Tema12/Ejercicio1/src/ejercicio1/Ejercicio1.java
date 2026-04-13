@@ -4,10 +4,14 @@
  */
 package ejercicio1;
 
-import com.sun.source.util.TreeScanner;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.InputMismatchException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  *
@@ -25,26 +29,66 @@ public class Ejercicio1 {
         int opcion;
         
         do {
-            mostrarMenu();
-            opcion = scanner.nextInt();
-            
-            switch(opcion) {
-                case 1:
-                    añadirContacto(agenda);
-                    break;
-                case 2:
-                    mostrarContactos(agenda);
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                default:
-                    System.out.println("Opcion invalida! Intentalo de nuevo");
+            try {
+                mostrarMenu();
+                opcion = Integer.parseInt(scanner.nextLine());
+                
+                switch (opcion) {
+                    case 1:
+                        añadirContacto(agenda);
+                        break;
+                    case 2:
+                        visualizarContactos(agenda);
+                        break;
+                    case 3:
+                        eliminarContacto(agenda);
+                        break;
+                    case 4:
+                        mostrarOrdenadosPorEdad(agenda);
+                        break;
+                    case 5:
+                        System.out.println("Saliendo del programa...");
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Intente de nuevo.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe introducir un número válido.");
+                opcion = 0;
+            } catch (InputMismatchException e) {
+                System.out.println("Error de entrada. Intente de nuevo.");
+                scanner.nextLine();
+                opcion = 0;
+            } catch (Exception e) {
+                System.out.println("Error inesperado: " + e.getMessage());
+                opcion = 0;
             }
         } while (opcion != 5);
+    }
+    
+    public static void visualizarContactos(Set<Contacto> agenda) {
+        if (agenda.isEmpty()) {
+            System.out.println("La agenda esta vacia.");
+        }
+        
+        System.out.println("\n--- LISTA DE CONTACTOS ---");
+        for (Contacto contacto : agenda) {
+            System.out.println(contacto);
+        }
+    }
+    
+    public static void mostrarOrdenadosPorEdad(Set<Contacto> agenda) {
+        if (agenda.isEmpty()) {
+            System.out.println("La agenda está vacía");
+        }
+        
+        List<Contacto> ordenados = new ArrayList<>(agenda);
+        ordenados.sort(Comparator.comparingInt(Contacto::getEdad));
+        
+        System.out.println("\n--- CONTACTOS ORDENADOS POR EDAD ---");
+        for (Contacto contacto : ordenados) {
+            System.out.println(contacto);
+        }
     }
 
     public static void añadirContacto(Set<Contacto> agenda) {
@@ -70,21 +114,24 @@ public class Ejercicio1 {
         }
     }
     
-    public static void eliminarContacto(Set<Contacto> agenda) {
+    private static void eliminarContacto(Set<Contacto> agenda) {
+        System.out.print("Introduce el número de teléfono del contacto a eliminar: ");
         Scanner scanner = new Scanner(System.in);
+        String movil = scanner.nextLine();
         
-        System.out.println("Introduce el numero del contacto que quieras eliminar.");
-        String numero = scanner.nextLine();
-        
-        boolean encontrado = false;
-        int i = 0;
-        
-        while(!encontrado) {
-            for(Contacto contacto : agenda) {
-                if(contacto.getTelefono().equalsIgnoreCase(numero)) {
-                    encontrado = true;
-                }
+        boolean eliminado = false;
+        for (Iterator<Contacto> iterator = agenda.iterator(); iterator.hasNext(); ) {
+            Contacto contacto = iterator.next();
+            if (contacto.getTelefono().equals(movil)) {
+                iterator.remove();
+                eliminado = true;
+                System.out.println("Contacto eliminado correctamente.");
+                break;
             }
+        }
+        
+        if (!eliminado) {
+            System.out.println("No se encontro ningun contacto con ese número de telefono");
         }
     }
     
