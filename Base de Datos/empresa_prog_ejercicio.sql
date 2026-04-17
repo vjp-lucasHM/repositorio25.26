@@ -113,3 +113,51 @@ END;
 //
 DELIMITER ;
 CALL EJERCICIO5();
+
+-- Crear una función que calcule la suma de los sueldos de todos los empleados de un departamento cuyo número le pasamos como parámetro.
+DELIMITER //
+DROP FUNCTION IF EXISTS F1 //
+CREATE FUNCTION F1(NUMERO INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+	DECLARE RESULTADO INT;
+    SELECT SUM(SALARIO) FROM EMP WHERE N_DPTO=NUMERO
+    GROUP BY N_DPTO
+    INTO RESULTADO;
+    RETURN RESULTADO;
+END;
+//
+DELIMITER ;
+SELECT F1(10) AS TOTAL;
+
+-- Función  que cuente cuántos departamentos hay en la empresa.
+DELIMITER //
+DROP FUNCTION IF EXISTS F2 //
+CREATE FUNCTION F2()
+RETURNS INT
+DETERMINISTIC
+BEGIN
+	DECLARE RESULTADO INT;
+    SELECT COUNT(*) FROM DPTO INTO RESULTADO;
+    RETURN RESULTADO;
+END;
+// 
+DELIMITER ;
+SELECT F2() AS N_DEPARTAMENTOS;
+
+-- 3. Función que devuelva un mensaje si el número empleados de un departamento es igual o mayor de 3: "'3 O MÁS DE TRES EMPLEADOS'+'EN EL DPTO'+'—’NÚMERO DE DPTO’ y otro mensaje en caso contrario:" 'MENOS DE TRES EMPLEADOS'+'EN EL DPTO'+'--. El número de departamento se le pasa como parámetro. Usar la función CONCAT.
+
+-- 4. Crea una función a la que le pasemos como parámetro el nombre de un departamento y devuelva el valor del sueldo más alto.
+DELIMITER //
+DROP FUNCTION IF EXISTS F4() //
+CREATE FUNCTION F4(NOMBRE VARCHAR(50))
+RETURNS DECIMAL(9,2)
+DETERMINISTIC
+BEGIN
+	DECLARE RESULTADO DECIMAL(9,2);
+    SELECT MAX(SALARIO) FROM DPTO JOIN EMP USING(N_DPTO) WHERE NOM_DPTO=NOMBRE INTO RESULTADO;
+    RETURN RESULTADO;
+END;
+//
+DELIMITER ;
