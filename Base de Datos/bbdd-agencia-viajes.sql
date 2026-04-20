@@ -1,0 +1,9 @@
+-- -------------------
+-- LUCAS HERRERA MORENO
+-- BASE DE DATOS
+-- AGENCIA DE VIAJES
+-- --------------------
+
+CREATE DATABASE AGENCIA_VIAJES;
+USE AGENCIA_VIAJES;
+
