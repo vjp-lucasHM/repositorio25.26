@@ -54,9 +54,10 @@ public class Ejercicio6 {
 
                     // Escribir en el fichero
                     // Usamos try-with-resources para cerrar automáticamente los flujos
-                    try (FileWriter fw = new FileWriter(nombreFichero);
-                         BufferedWriter bw = new BufferedWriter(fw);
-                         PrintWriter pw = new PrintWriter(bw)) {
+                    try (
+                            FileWriter fw = new FileWriter(nombreFichero);
+                            PrintWriter pw = new PrintWriter(fw)
+                        ) {
 
                         // Volcamos el array al fichero (separados por comas para que se vea bien)
                         for (int i = 0; i < arrayPares.length; i++) {
@@ -78,12 +79,14 @@ public class Ejercicio6 {
                         System.out.println("Aún no ha creado ningún fichero. Seleccione la opción 1 primero.");
                     } else {
                         // Leer y mostrar el contenido
-                        try (FileReader fr = new FileReader(nombreFichero);
-                             BufferedReader br = new BufferedReader(fr)) {
-
+                        try (
+                                FileReader fr = new FileReader(nombreFichero);
+                                BufferedReader br = new BufferedReader(fr)
+                            ) {
                             System.out.println("\n--- CONTENIDO DEL FICHERO (" + nombreFichero + ") ---");
                             String linea;
                             // Leemos línea a línea (en este caso será una sola línea larga con comas)
+                            
                             while ((linea = br.readLine()) != null) {
                                 System.out.println(linea);
                             }
