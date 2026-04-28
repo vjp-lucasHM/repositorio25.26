@@ -41,7 +41,7 @@ public class Ejercicio13 {
         try (
                 FileWriter fw = new FileWriter("datos_beca.txt", true);
                 PrintWriter pw = new PrintWriter(fw);
-            ) {
+        ) {
             //Se escribe la informacion en cada linea
             pw.println("Nombre: " + nombre);
             pw.println("Sexo: " + sexo);
